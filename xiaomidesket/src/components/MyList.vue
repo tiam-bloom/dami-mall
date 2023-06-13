@@ -9,21 +9,19 @@
       <li v-for="item in list" :key="item.good_id">
         <router-link :to="{ path: '/product/' + item.good_id }">
           <img :src="item.imageFoot" alt />
-          <h2>{{item.name}}</h2>
-          <h3>{{item.subtitle}}</h3>
+          <h2>{{ item.name }}</h2>
+          <h3>{{ item.subtitle }}</h3>
           <p>
-            <span>{{item.price}}元</span>
-            <span
-              v-show="item.price !== item.oldprice"
-              class="del">{{item.oldprice}}元</span>
+            <span>{{ item.price }}元</span>
+            <span v-show="item.price !== item.oldprice" class="del">{{ item.oldprice }}元</span>
           </p>
         </router-link>
       </li>
-      <li v-show="isMore && list.length>=1" id="more">
-        <router-link :to="{ path: '/goods', query: {categoryID:categoryID} }">
-          浏览更多
+      <li v-show="isMore && list.length >= 1" id="more">
+        <div>
+          <a href="#" style="font-size: 18px;">浏览更多</a>
           <i class="el-icon-d-arrow-right"></i>
-        </router-link>
+        </div>
       </li>
     </ul>
   </div>
@@ -39,7 +37,7 @@ export default {
   },
   computed: {
     // 通过list获取当前显示的商品的分类ID，用于“浏览更多”链接的参数
-    categoryID: function() {
+    categoryID: function () {
       let categoryID = [];
       if (this.list != "") {
         for (let i = 0; i < this.list.length; i++) {
@@ -69,6 +67,7 @@ export default {
   transition: all 0.2s linear;
   position: relative;
 }
+
 .myList ul li:hover {
   z-index: 2;
   -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -76,6 +75,7 @@ export default {
   -webkit-transform: translate3d(0, -2px, 0);
   transform: translate3d(0, -2px, 0);
 }
+
 .myList ul li img {
   display: block;
   width: 160px;
@@ -83,6 +83,7 @@ export default {
   background: url(../assets/imgs/placeholder.png) no-repeat 50%;
   margin: 0 auto;
 }
+
 .myList ul li h2 {
   margin: 25px 10px 0;
   font-size: 14px;
@@ -94,6 +95,7 @@ export default {
   white-space: nowrap;
   overflow: hidden;
 }
+
 .myList ul li h3 {
   margin: 5px 10px;
   height: 18px;
@@ -105,36 +107,44 @@ export default {
   white-space: nowrap;
   overflow: hidden;
 }
+
 .myList ul li p {
   margin: 10px 10px 10px;
   text-align: center;
   color: #ff6700;
 }
+
 .myList ul li p .del {
   margin-left: 0.5em;
   color: #b0b0b0;
   text-decoration: line-through;
 }
+
 .myList #more {
   text-align: center;
   line-height: 280px;
 }
+
 .myList #more a {
   font-size: 18px;
   color: #333;
 }
+
 .myList #more a:hover {
   color: #ff6700;
 }
+
 .myList ul li .delete {
   position: absolute;
   top: 10px;
   right: 10px;
   display: none;
 }
+
 .myList ul li:hover .delete {
   display: block
 }
+
 .myList ul li .delete:hover {
   color: #ff6700;
 }

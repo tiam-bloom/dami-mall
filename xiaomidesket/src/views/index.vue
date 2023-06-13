@@ -32,43 +32,13 @@
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
       </div>
-
       <!--        变换图下的四个小图-->
       <div class="ads-box">
         <a :href="item.detail" v-for="(item, index) in adsList" :key="index">
           <img v-lazy="item.img">
         </a>
       </div>
-
       <!--      横幅广告-->
-    </div>
-    <div class="product-box2">
-      <div class="container">
-        <div class="box-hd">
-          <div class="title">小米秒杀</div>
-          <div class="more">
-          </div>
-        </div>
-
-        <div class="box-bd">
-          <div class="items1 items2 fl">
-            <a href="#">
-              <p class="thun-red">{{ starttime }}</p>
-              <img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/colock.jpg" class="clock-img">
-              <p class="thun">{{ tip }}</p>
-              <div id="first" class="time-item">
-                <strong class="hour_show"><s id="h"></s>{{ -hour }}</strong>
-                <strong class="minute_show"><s></s>{{ -minute }}</strong>
-                <strong class="second_show"><s></s>{{ -second }}</strong>
-              </div>
-            </a>
-          </div>
-
-          <div class="list-box">
-            <MyList :list="killList" :isMore="false"></MyList>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="banner">
@@ -334,7 +304,7 @@
         </div>
         <div class="recommend-wrap">
           <ul class="recommend-content clearfix">
-            <li class="recomend-item" v-for="item in recomend">
+            <li class="recomend-item" v-for="item in recomend" :key="item.id">
               <router-link :to="{ path: '/product/' + item.good_id }">
                 <img class="item-image" :src="item.imgUrl" alt="" />
                 <h3 class="item-name">{{ item.name }}</h3>
@@ -366,18 +336,19 @@ import Flash from "../components/Flash";
 export default {
   name: 'index',
   components: {
-    Flash,
     MyMenu,
     MyList,
     swiper,
     swiperSlide,
-    ServiceBar,
-    Modal,
+    ServiceBar
   },
   data() {
     return {
       swiperOption: {
-        autoplay: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
         loop: true,
         effect: 'cube',
         cubeEffect: {
@@ -393,7 +364,7 @@ export default {
           prevEl: '.swiper-button-prev'
         }
       },
-
+      tip: '',
       currentPage: 1,// 当前页码
       pageSize: 8,// 每页大小
       total: 64,
@@ -484,10 +455,6 @@ export default {
       recomend: [],
       recomends: [],
 
-      starttime: '',
-      hour: '',
-      minute: '',
-      second: '',
 
     }
   },
@@ -495,15 +462,6 @@ export default {
     this.init()
   },
   watch: {
-    // second: function(val) {
-    //   if(val===0&&this.minute ===0&&this.hour ===0&&this.tip==='距离开始还有'){
-    //     this.tip='距离秒杀结束还有';
-    //   }
-    //   else if(val===0&&this.minute ===0&&this.hour ===0&&this.tip==='距离秒杀结束还有'){
-    //     this.tip='秒杀已结束';
-    //
-    //   }
-    // },
 
     // 家电当前选中的商品分类，响应不同的商品数据
     applianceActive2: function (val) {
@@ -564,40 +522,8 @@ export default {
   },
 
   methods: {
-
-    runTime: function () {//运行倒计时
-      var that = this;
-      that.tip = '距离开始还有';
-      let endTime = new Date(new Date().getTime() + 30 * 1000);
-
-      that.starttime = '开场时间:' + endTime.getHours() + ':' + endTime.getMinutes();
-
-      var timer = setInterval(function () {
-        var nowTime = new Date();
-        var longTime = nowTime - endTime;
-
-        var hours = parseInt(longTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时
-        var minutes = parseInt(longTime / 1000 / 60 % 60, 10);//计算剩余的分钟
-        var seconds = parseInt(longTime / 1000 % 60, 10);//计算剩余的秒数
-        that.hour = hours;
-        that.minute = minutes;
-        that.second = seconds;
-
-        if (hours === 0 && minutes === 0 && seconds === 0 && that.tip === '距离开始还有') {
-          that.tip = '距离秒杀结束还有';
-          endTime = new Date(new Date().getTime() + 60 * 1000)
-        }
-        else if (hours === 0 && minutes === 0 && seconds === 0 && that.tip === '距离秒杀结束还有') {
-          clearInterval(timer);
-          that.tip = '秒杀已结束';
-        }
-
-      }, 1000)
-    },
-
     init() {
       var that = this;
-      that.runTime();
 
       this.axios.get('http://localhost:8080/index/category',
       ).then((res) => {
@@ -759,7 +685,11 @@ export default {
 @import './../assets/scss/mixin.scss';
 
 .index {
+
   // background-color: gray;
+  .banner {
+    margin-top: 20px;
+  }
 
   .swiper-box {
     .nav-menu {
@@ -872,7 +802,6 @@ export default {
     }
   }
 
-  .banner {}
 
   .product-box {
     background-color: $colorJ;
@@ -924,163 +853,6 @@ export default {
     .box-bd .promo-list {
       float: left;
       height: 615px;
-      width: 234px;
-    }
-
-    .box-bd .promo-list li {
-      z-index: 1;
-      width: 234px;
-      height: 300px;
-      margin-bottom: 14.5px;
-      -webkit-transition: all 0.2s linear;
-      transition: all 0.2s linear;
-    }
-
-    .box-bd .promo-list li:hover {
-      z-index: 2;
-      -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      -webkit-transform: translate3d(0, -2px, 0);
-      transform: translate3d(0, -2px, 0);
-    }
-
-    .box-bd .promo-list li img {
-      width: 234px;
-      height: 300px;
-    }
-
-    .box-bd .promo-list img {
-      width: 234px;
-    }
-
-    .box-bd .list {
-      float: left;
-      height: 615px;
-      width: 991px;
-    }
-  }
-
-  .product-box2 {
-    background-color: $colorJ;
-    padding: 30px 0 0;
-
-    h2 {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 200;
-      line-height: 58px;
-      color: #333;
-    }
-
-    .PreOrNext {
-      margin-left: 800px;
-    }
-
-    .items2 {
-      margin-left: 0;
-      padding: 0;
-    }
-
-    .items1 {
-      text-align: center;
-      width: 214px;
-      height: 300px;
-      border-top: 1px solid red;
-      background-color: white;
-      float: left;
-      margin-left: 0px;
-    }
-
-    a {
-      color: #666;
-      text-decoration: none;
-    }
-
-    .thun-red {
-      font-size: 21px;
-      color: red;
-      margin-top: 54px;
-    }
-
-    .clock-img {
-      width: 34px;
-      height: 50px;
-      margin: 25px 0;
-    }
-
-    img {
-      border: 0;
-    }
-
-    .thun {
-      width: 194px;
-      height: 21px;
-      margin-bottom: 3px;
-      margin: 0 auto;
-      font-size: 14px;
-      color: #121212;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .time-item {
-      margin-top: 20px;
-    }
-
-    .time-item strong {
-      display: inline-block;
-      background: #555555;
-      color: #fff;
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      font-size: 24px;
-      font-family: Arial;
-      margin-right: 7px;
-      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    }
-
-    .box-hd {
-      height: 58px;
-      margin: 20px 0 0 0;
-    }
-
-    .box-hd .title {
-      float: left;
-      font-size: 22px;
-      font-weight: 200;
-      line-height: 58px;
-      color: #333;
-    }
-
-    .box-hd .more {
-      float: right;
-    }
-
-    .box-hd .more a {
-      font-size: 16px;
-      line-height: 58px;
-      color: #424242;
-    }
-
-    .box-hd .more a:hover {
-      color: #ff6700;
-    }
-
-    .box-bd {
-      height: 340px;
-    }
-
-    .box-bd .promo-list {
-      float: left;
-      height: 340px;
-      width: 234px;
-    }
-
-    .box-bd .promo-list2 {
-      float: left;
-      height: 300px;
       width: 234px;
     }
 

@@ -83,7 +83,7 @@ export default {
   },
   data() {
     return {
-      list: [], // 商品列表
+      list: [{}], // 商品列表
       allChecked: false, // 是否全选
       cartTotalPrice: 0, // 商品总金额
       checkedNum: 0,// 选中商品数量
@@ -397,4 +397,5 @@ export default {
       }
     }
   }
-}</style>
+}
+</style>

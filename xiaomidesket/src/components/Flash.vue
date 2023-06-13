@@ -1,5 +1,4 @@
 <template>
-
   <div class="flash">
     <div class="flash-box clearfix">
       <div class="items1 items2 fl">
@@ -54,17 +53,15 @@
     </div>
 
   </div>
-
 </template>
 
 <script>
 export default {
-name: "Flash"
+  name: "Flash"
 }
 </script>
 
 <style scoped>
-
 .title {
   color: #333;
   font-size: 22px;
@@ -72,26 +69,29 @@ name: "Flash"
   line-height: 58px;
   text-align: left;
 }
-.title li{
+
+.title li {
   font-weight: 400;
   font-size: 17px;
   height: 43px;
   margin-left: 15px;
   padding: 0;
 }
-.title li.active{
+
+.title li.active {
   color: #FF6700;
   border-bottom: 2px solid #FF6700;
 }
+
 .qie .content-box .elc-box:nth-child(2),
-.qie .content-box .elc-box:nth-child(3)
-{
+.qie .content-box .elc-box:nth-child(3) {
   display: none;
 }
 
 .qie .content-box .elc-box:nth-child(3) {
   display: none;
 }
+
 /* .jiadian  .content-box .elc-box:first-child {
 	display: block;
 } */
@@ -108,9 +108,11 @@ name: "Flash"
 .items2 {
   margin-left: 0;
 }
-.time-item{
+
+.time-item {
   margin-top: 20px;
 }
+
 .time-item strong {
   display: inline-block;
   background: #555555;
@@ -132,6 +134,7 @@ name: "Flash"
   padding: 0 10px;
   float: left;
 }
+
 .flash-box>div:nth-child(2) {
   border-top-color: #00AB88;
 }
@@ -192,7 +195,7 @@ name: "Flash"
   margin: 25px 0;
 }
 
-.   thun-red {
+.thun-red {
   font-size: 21px;
   color: red;
   margin-top: 54px;
@@ -201,5 +204,4 @@ name: "Flash"
 .ad-img {
   width: 100%;
   margin: 22px 0;
-}
-</style>
+}</style>

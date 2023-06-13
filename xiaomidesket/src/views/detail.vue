@@ -46,7 +46,7 @@
             <div class="phone-total">总计：{{ product.price }}元</div>
           </div>
           <div class="btn-group">
-            <a href="javascript:;" class="btn btn-huge fl" @click="addCart">加入购物车</a>
+            <a href="javascript:;" class="btn btn-huge fl" @click="addCart(id)">加入购物车</a>
           </div>
         </div>
       </div>
@@ -59,16 +59,24 @@
         </div>
       </div>
     </div>
+    <Modal title="提示" sureText="查看购物车" cancelText="取消" btnType="3" modalType="middle" :showModal="showModal"
+      @submit="goToCart" @cancel="showModal = false">
+      <template v-slot:body>
+        <p>商品添加成功！</p>
+      </template>
+    </Modal>
     <service-bar></service-bar>
   </div>
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import ProductParam from './../components/ProductParam'
+import Modal from "../components/Modal";
 import ServiceBar from './../components/ServiceBar'
 export default {
   name: 'detail',
   components: {
+    Modal,
     swiper,
     swiperSlide,
     ProductParam,
@@ -76,6 +84,7 @@ export default {
   },
   data() {
     return {
+      showModal: false,
       id: this.$route.params.id, // 获取商品ID
       version: 1, // 商品版本切换
       product: {}, // 商品信息
@@ -95,19 +104,45 @@ export default {
   methods: {
     getProductInfo() {
       this.axios.get(`/products/${this.id}`).then((res) => {
+        // console.log(res.json());
         this.product = res
         this.mainImage = res.mainImage
       })
     },
-    addCart() {
-      this.axios.post('/carts', {
-        productId: this.id,
-        selected: true
+    addCart(id) {
+      console.log(this.id);
+      let token;
+      if (sessionStorage.getItem("token")) {
+        token = sessionStorage.getItem("token")
+      }
+      else {
+        token = 'null'
+      }
+      let username = sessionStorage.getItem("username")
+      const iid = this.$route.params.id;
+      this.axios.post('http://localhost:8080/carts/push', {
+        token: token.replace(/^\"|\"$/g, ''),
+        productId: iid,
+        username: username,
+        select: true
+
       }).then((res) => {
+        this.showModal = true
         this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
-        this.$message.success('已加入购物车')
       })
-    }
+    },
+    goToCart() {
+      this.$router.push('/shoppingcar')
+    },
+    // addCart(id) {
+    //   this.axios.post('/carts', {
+    //     productId: this.id,
+    //     selected: true
+    //   }).then((res) => {
+    //     this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
+    //     this.$message.success('已加入购物车')
+    //   })
+    // }
   }
 }
 </script>
@@ -273,4 +308,5 @@ export default {
       margin-bottom: 30px;
     }
   }
-}</style>
+}
+</style>

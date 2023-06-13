@@ -20,7 +20,7 @@
           <a href="javascript:;" @click="reg()">注册</a>
           <a href="javascript:;" v-if="username" @click="logout()">退出</a>
           <a href="/#/order/list" v-if="username">我的订单</a>
-          <a href="javascript:;" class="my-cart" @click="goToCart()">
+          <a href="javascript:;" class="my-cart" @click="gotoShopingcars()">
             <span class="icon-cart"></span>购物车({{ cartCount }})
           </a>
         </div>
@@ -29,6 +29,7 @@
 
     <div class="nav-header">
       <div class="container">
+        <!-- 首页跳转 -->
         <div class="header-logo">
           <!-- 相当于：localhost:8080/#/index -->
           <a href="/#/index"></a>
@@ -36,7 +37,7 @@
 
         <div class="header-menu">
           <div class="item-menu">
-            <span>小米手机</span>
+            <span>手机</span>
             <div class="children">
               <ul>
                 <li class="product" v-for="(item, index) in phoneList" :key="index">
@@ -133,6 +134,7 @@ export default {
       return sessionStorage.getItem("username")
     },
     cartCount() {
+      // vuex状态管理store中存放购物车数量
       return this.$store.state.cartCount
     }
     // ...mapState(['username', 'cartCount'])
@@ -169,8 +171,8 @@ export default {
       sessionStorage.clear()
       this.$router.go(0)
     },
-    goToCart() {
-      this.$router.push('/cart')
+    gotoShopingcars() {
+      this.$router.push('/shoppingcar')
     },
     getProductList() {
       this.axios.get('http://localhost:8080/index/product', {
@@ -226,8 +228,8 @@ export default {
 
 .header {
   .nav-topbar {
-    height: 39px;
-    line-height: 39px;
+    height: 42px;
+    line-height: 42px;
     background-color: $colorB;
     color: #B0B0B0;
 
@@ -305,7 +307,7 @@ export default {
           display: inline-block;
           color: $colorB;
           font-weight: normal;
-          font-size: 16px;
+          font-size: 18px;
           line-height: 112px;
           margin-right: 20px;
 
@@ -421,4 +423,5 @@ export default {
       }
     }
   }
-}</style>
+}
+</style>

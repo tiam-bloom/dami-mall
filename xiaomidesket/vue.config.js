@@ -22,7 +22,7 @@ module.exports = {
   lintOnSave: false, //如果为false，就是取消eslint规则的检查
   devServer: {
     host: 'localhost',
-    port: 7070,
+    port: 8080,
   },
 
   productionSourceMap: false, // 设为false：打包后部署在Sources中搜索不到main.js(即看不到源码)，更安全

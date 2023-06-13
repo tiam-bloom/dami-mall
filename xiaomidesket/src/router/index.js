@@ -47,9 +47,9 @@ export default new VueRouter({
       component: () => import('./../views/Register.vue')
     },
     {
-      path: '/cart',
-      name: 'cart',
-      component: () => import('./../views/cart.vue')
+      path: '/shoppingcar',
+      name: 'shoppingcar',
+      component: () => import('./../views/shoppingcar.vue')
     },
     {
       path: '/order',
