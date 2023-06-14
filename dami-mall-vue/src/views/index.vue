@@ -42,7 +42,7 @@
     </div>
 
     <div class="banner">
-      <a href="https://www.mi.com/redminote9pro?product_id=1204500018">
+      <a href="#">
         <img
           src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/431e5fd6bfd1b67d096928248be18303.jpg?thumb=1&w=1226&h=120&f=webp&q=90">
       </a>
@@ -61,7 +61,7 @@
 
         <div class="box-bd">
           <div class="promo-list">
-            <router-link to="https://www.mi.com/redminote9pro?product_id=1204500018">
+            <router-link to="#">
               <img
                 :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cb1bd61ad71c45a4f67f09b075463944.jpeg?thumb=1&w=234&h=614&f=webp&q=90'" />
             </router-link>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="banner">
-      <a href="https://www.mi.com/a/h/15707.html">
+      <a href="#">
         <img
           :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41d16e66381cfeda7b6b39ab67678d5e.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
       </a>
@@ -122,7 +122,7 @@
     </div>
 
     <div class="banner">
-      <a href="https://www.mi.com/buy/detail?product_id=10025">
+      <a href="#">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/59e8fc8ba9718c266882719fb4bbcedd.webp'">
       </a>
     </div>
@@ -162,7 +162,7 @@
     </div>
 
     <div class="banner">
-      <a href="https://www.mi.com/a/h/19199.html">
+      <a href="#">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/b34997348887380ab4d19587fa1a711c.webp'">
       </a>
     </div>
@@ -202,7 +202,7 @@
     </div>
 
     <div class="banner">
-      <a href="https://www.mi.com/a/h/16528.html">
+      <a href="#">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/1615d1842fe85914a545297836a44271.webp'">
       </a>
     </div>
@@ -242,7 +242,7 @@
     </div>
 
     <div class="banner">
-      <a href="https://www.mi.com/a/h/15274.html">
+      <a href="#">
         <img
           :src="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9880db34d227b6c1df5b45cb7df4f465.jpg?thumb=1&w=1226&h=120&f=webp&q=90'">
       </a>
@@ -283,7 +283,7 @@
     </div>
 
     <div class="banner">
-      <a href="https://www.mi.com/buy/detail?product_id=9836">
+      <a href="#">
         <img :src="'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/88e35cffc82cd98cd53172460067af17.webp'">
       </a>
     </div>
@@ -373,22 +373,22 @@ export default {
         {
           id: '1',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/aa6133dcd2cca53b77f4ad79551628df.jpg',
-          url: 'https://www.mi.com/redmik40?product_id=1210500091'
+          url: '#'
         },
         {
           id: '2',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/28ce93203d5a18c2e8530a47992c55f4.webp',
-          url: 'https://www.mi.com/redmibook/pro14?product_id=10000279'
+          url: '#'
         },
         {
           id: '3',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/lunbo1.webp',
-          url: 'https://www.mi.com/redmitv/98?product_id=1201300006'
+          url: '#'
         },
         {
           id: '4',
           img: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/289e412870426ffb5bcdcfa9ba0676df.jpg?thumb=1&w=1226&h=460&f=webp&q=90',
-          url: 'https://www.mi.com/airenergy?product_id=1185000014'
+          url: '#'
         }
       ],
 
@@ -396,19 +396,19 @@ export default {
       ,
       adsList: [
         {
-          detail: 'https://www.mi.com/buy/detail?product_id=12511',
+          detail: '#',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/5d4298059889417157e8492750328492.jpg'
         },
         {
-          detail: 'https://www.mi.com/buy/detail?product_id=12605',
+          detail: '#',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-2.jpg'
         },
         {
-          detail: 'http://www.mi.com/redminote8?product_id=10000181',
+          detail: '#',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/ads-3.png'
         },
         {
-          detail: 'https://www.mi.com/buy/detail?product_id=12931',
+          detail: '#',
           img: 'https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/lunboxia1.jpg'
         }
       ],

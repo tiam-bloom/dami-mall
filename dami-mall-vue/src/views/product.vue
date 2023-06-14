@@ -86,11 +86,7 @@ export default {
     getProductInfo() {
       // 获取url中的参数32， 比如：http://localhost:8080/#/product/32
       const id = this.$route.params.id
-      this.axios.get(`http://localhost:8080/product/getinfo`, {
-        params: {
-          'id': id,
-        }
-      }).then((res) => {
+      this.axios.get(`http://localhost:8080/product/getInfoById/${id}`).then((res) => {
         this.product = res.data
       })
     },
