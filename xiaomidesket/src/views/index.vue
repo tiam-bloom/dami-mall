@@ -332,7 +332,6 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import MyList from "../components/MyList";
 import MyMenu from "../components/MyMenu";
-import Flash from "../components/Flash";
 export default {
   name: 'index',
   components: {

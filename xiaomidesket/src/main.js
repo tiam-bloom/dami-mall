@@ -45,13 +45,13 @@ import App from './App.vue'
 axios.interceptors.response.use(function (response) {
   const res = response.data
   try {
-    JSON.parse(res);
-  } catch(e) {
-    console.log(e);
+    JSON.parse(res.data);
+  } catch (e) {
+    // console.log(e);
     return res;
   }
-  if (res.status === 0 || res.status === 1 ||res.status === 200 || res.status === 404 ||
-      res.status === 2002 || res.status === 2007 || res.status === 2008 || res.status === null) { // 0：表示成功
+  if (res.status === 0 || res.status === 1 || res.status === 200 || res.status === 404 ||
+    res.status === 2002 || res.status === 2007 || res.status === 2008 || res.status === null) { // 0：表示成功
     return res
   } else if (res.status === 10) { // 10：表示未登录
     // 在.js文件中，只能使用window.location.href跳转，才有效

@@ -1,8 +1,4 @@
-<!--
- * @Description: 列表组件，用于首页、全部商品页面的商品列表
- * @Date: 2020-02-24 16:23:00
-
- -->
+<!-- 首页商品分类板块中的商品 -->
 <template>
   <div id="myList" class="myList">
     <ul>

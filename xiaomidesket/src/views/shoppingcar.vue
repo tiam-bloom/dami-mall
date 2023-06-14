@@ -83,7 +83,7 @@ export default {
   },
   data() {
     return {
-      list: [{}], // 商品列表
+      list: [], // 商品列表
       allChecked: false, // 是否全选
       cartTotalPrice: 0, // 商品总金额
       checkedNum: 0,// 选中商品数量
@@ -167,7 +167,7 @@ export default {
     },
     // 公共赋值
     renderData(res) {
-      this.list = res.data.list || []
+      this.list = res.data ? res.data.list : []
       this.allChecked = res.selectedAll
       this.cartTotalPrice = res.cartTotalPrice
       this.checkedNum = this.list.filter(item => item.productSelected).length

@@ -6,12 +6,12 @@
       </template>
     </product-param>
     <div class="content">
-      <div>
+      <div class="title_box">
         <h2>{{ product.name }}</h2>
         <h3>{{ product.subtitle }}</h3>
-        <div class="">
+        <p>
           <span>￥<em>{{ product.price }}</em></span>
-        </div>
+        </p>
       </div>
       <div class="item-bg">
       </div>
@@ -114,9 +114,7 @@ export default {
 
 .product {
   .content {
-    .item-bg {
-      background: url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/spokesman.jpg') no-repeat center;
-      height: 718px;
+    .title_box {
       text-align: center;
 
       h2 {
@@ -139,9 +137,18 @@ export default {
         }
 
         span {
+          color: orange;
           margin: 0 15px;
+          font-size: 30px;
         }
       }
+    }
+
+    .item-bg {
+      background: url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/spokesman.jpg') no-repeat center;
+      height: 718px;
+      text-align: center;
+
 
       .price {
         font-size: 30px;
