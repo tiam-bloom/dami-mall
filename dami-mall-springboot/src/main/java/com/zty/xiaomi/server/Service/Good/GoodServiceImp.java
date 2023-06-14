@@ -4,6 +4,8 @@ import com.zty.xiaomi.server.Entity.Cart.CartGood;
 import com.zty.xiaomi.server.Entity.Cart.CartGoodInsert;
 import com.zty.xiaomi.server.Entity.Cart.cartProduct;
 import com.zty.xiaomi.server.Entity.Good;
+import com.zty.xiaomi.server.Entity.GoodAll;
+import com.zty.xiaomi.server.Entity.GoodsAll;
 import com.zty.xiaomi.server.Entity.index.GoodCategory;
 import com.zty.xiaomi.server.Mapper.GoodCart;
 import com.zty.xiaomi.server.Mapper.Goods;
@@ -90,6 +92,13 @@ public class GoodServiceImp implements GoodService {
                             String Subtitle,int ProductStock,int Status,boolean select
     ) {
         goodCartmapper.insCartGood(userid,goodid,goodname,price,count,Subtitle,ProductStock,Status,select,count*price);
+    }
+
+    @Override
+    public GoodsAll listGoods() {
+        List<Good> list = goodsmapper.listGoods();
+
+        return null;
     }
 
 }

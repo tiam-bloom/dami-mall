@@ -7,6 +7,7 @@ import com.zty.xiaomi.server.Entity.index.GoodCategory;
 import com.zty.xiaomi.server.Service.Good.GoodServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ public class GoodController {
         private GoodServiceImp goodServiceImp;
 
         @RequestMapping("getGoodsAll")
-        private GoodsAll getGoodByCategory() {
+        public GoodsAll getGoodByCategory() {
                 GoodsAll goodsAll = new GoodsAll();
                 ArrayList<GoodAll> goodAlls = new ArrayList<>();
                 for (int i = 1; i <= 9; i++) {
@@ -34,5 +35,13 @@ public class GoodController {
                 }
                 goodsAll.setData(goodAlls);
                 return goodsAll;
+        }
+
+
+        @GetMapping("listGoods")
+        public GoodsAll listGoods(){
+
+
+                return goodServiceImp.listGoods();
         }
 }

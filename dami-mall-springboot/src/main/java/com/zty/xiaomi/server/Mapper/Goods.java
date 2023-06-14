@@ -13,4 +13,8 @@ public interface Goods {
     List<Good> getGood(int category_id);
     @Select("select name,type from category where category_id = #{category_id}")
     GoodCategory getGoodCategory(int category_id);
+
+
+    @Select("select * from goods")
+    List<Good> listGoods();
 }
