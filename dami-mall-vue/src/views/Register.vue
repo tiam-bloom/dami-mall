@@ -217,7 +217,9 @@ export default {
     background: url('https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-bg2.jpg') no-repeat center;
 
     .container {
+      width: 100%;
       height: 576px;
+      position: relative;
 
       .login-form {
         box-sizing: border-box;
@@ -227,8 +229,8 @@ export default {
         height: 510px;
         background-color: #ffffff;
         position: absolute;
-        bottom: 29px;
-        right: 290px;
+        bottom: 30px;
+        right: 200px;
 
         h3 {
           line-height: 23px;

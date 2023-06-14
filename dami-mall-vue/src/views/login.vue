@@ -140,6 +140,7 @@ export default {
 
     .container {
       height: 576px;
+      width: 100%;
       position: relative;
 
       .login-form {
@@ -153,8 +154,8 @@ export default {
         height: 510px;
         background-color: #ffffff;
         position: absolute;
-        bottom: 29px;
-        right: 290px;
+        bottom: 30px;
+        right: 200px;
 
         h3 {
           line-height: 23px;
