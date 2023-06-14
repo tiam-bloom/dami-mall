@@ -6,11 +6,11 @@
       <div class="container clearfix">
         <div class="swiper">
           <swiper :options="swiperOption">
-            <swiper-slide><img :src="mainImage" alt="手机展示图"></swiper-slide>
-            <!-- <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt="手机展示图1"></swiper-slide>
-              <swiper-slide><img src="/imgs/detail/phone-2.jpg" alt="手机展示图2"></swiper-slide>
-              <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt="手机展示图3"></swiper-slide>
-               -->
+            <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt="手机展示图"></swiper-slide>
+            <swiper-slide><img src="/imgs/detail/phone-1.jpg" alt="手机展示图1"></swiper-slide>
+            <swiper-slide><img src="/imgs/detail/phone-2.jpg" alt="手机展示图2"></swiper-slide>
+            <swiper-slide><img src="/imgs/detail/phone-3.jpg" alt="手机展示图3"></swiper-slide>
+
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
           </swiper>
@@ -70,6 +70,7 @@
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import "swiper/dist/css/swiper.css";
 import ProductParam from './../components/ProductParam'
 import Modal from "../components/Modal";
 import ServiceBar from './../components/ServiceBar'

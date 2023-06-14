@@ -1,8 +1,15 @@
 <template>
   <div class="login">
     <!-- 注册界面 -->
-    <div class="container">
-      <a href="/#/index"><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-logo.png" alt=""></a>
+
+    <div class="top_bar">
+      <a href="/#/index">
+        <div class="img_log"></div>
+        <div class="content">
+          <p>大米电子购物商城</p>
+          <span>实训周项目</span>
+        </div>
+      </a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -172,12 +179,37 @@ export default {
 </script>
 <style lang="scss">
 .login {
-  &>.container {
-    height: 113px;
+  .top_bar {
+    height: 130px;
+    position: relative;
 
-    img {
-      width: auto;
-      height: 100%;
+    .img_log {
+      width: 60px;
+      height: 60px;
+      background-image: url("https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-logo.png");
+      background-position: 0px -20px;
+      position: absolute;
+      top: 40px;
+      left: 300px;
+    }
+
+    .content {
+      width: max-content;
+      color: gray;
+      position: absolute;
+      top: 39px;
+      left: 364px;
+
+      p {
+        font-size: 30px;
+        font-weight: bolder;
+      }
+
+      span {
+        font-size: 18px;
+
+      }
+
     }
   }
 
@@ -196,7 +228,7 @@ export default {
         background-color: #ffffff;
         position: absolute;
         bottom: 29px;
-        right: 0;
+        right: 290px;
 
         h3 {
           line-height: 23px;

@@ -1,8 +1,14 @@
 <template>
   <div class="login">
     <!-- 登陆页 -->
-    <div class="container">
-      <a href="/#/index"><img src="https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-logo.png" alt=""></a>
+    <div class="top_bar">
+      <a href="/#/index">
+        <div class="img_log"></div>
+        <div class="content">
+          <p>大米电子购物商城</p>
+          <span>实训周项目</span>
+        </div>
+      </a>
     </div>
     <div class="wrapper">
       <div class="container">
@@ -84,12 +90,6 @@ export default {
           this.$message.error('无此用户，请重新输入正确用户名');
         }
 
-        /**
-          * 保存购物车数量，不在这里做（axios里套axios），改成跳转到/index页面里判断是否是login页面跳转过来的，是则请求购物车数量
-          * this.axios.get('/carts/products/sum').then((res) => {
-          * this.saveCartCount(res)
-          * })
-         */
 
       })
     },
@@ -99,14 +99,39 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" >
 .login {
-  &>.container {
-    height: 113px;
+  .top_bar {
+    height: 130px;
+    position: relative;
 
-    img {
-      width: auto;
-      height: 100%;
+    .img_log {
+      width: 60px;
+      height: 60px;
+      background-image: url("https://cdn.jsdelivr.net/gh/ZTY18873242003/img/优雅的使用图床/login-logo.png");
+      background-position: 0px -20px;
+      position: absolute;
+      top: 40px;
+      left: 300px;
+    }
+
+    .content {
+      width: max-content;
+      color: gray;
+      position: absolute;
+      top: 39px;
+      left: 364px;
+
+      p {
+        font-size: 30px;
+        font-weight: bolder;
+      }
+
+      span {
+        font-size: 18px;
+
+      }
+
     }
   }
 
@@ -115,8 +140,12 @@ export default {
 
     .container {
       height: 576px;
+      position: relative;
 
       .login-form {
+
+        box-shadow: 2px 2px 2px gray;
+        border-radius: 5px;
         box-sizing: border-box;
         padding-left: 31px;
         padding-right: 31px;
@@ -125,7 +154,7 @@ export default {
         background-color: #ffffff;
         position: absolute;
         bottom: 29px;
-        right: 0;
+        right: 290px;
 
         h3 {
           line-height: 23px;
@@ -188,26 +217,5 @@ export default {
     }
   }
 
-  .footer {
-    height: 100px;
-    padding-top: 60px;
-    color: #999999;
-    font-size: 16px;
-    text-align: center;
-
-    .footer-link {
-      a {
-        color: #999999;
-        display: inline-block;
-      }
-
-      span {
-        margin: 0 10px;
-      }
-    }
-
-    .copyright {
-      margin-top: 13px;
-    }
-  }
-}</style>
+}
+</style>

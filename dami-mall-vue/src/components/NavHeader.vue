@@ -10,7 +10,7 @@
         <div class="topbar-menu">
           <!-- 点击链接，不让页面刷新 -->
           <a href="https://xiaoai.mi.com/">小爱开放平台</a>
-          <a href="https://www.miui.com/">MIUI</a>
+          <a href="https://www.miui.com/">DaMi</a>
           <a href="https://i.mi.com/">云服务</a>
           <a href="https://www.mi.com/aptitude/list/">协议规则</a>
         </div>
@@ -19,7 +19,7 @@
           <a href="javascript:;" v-if="!username" @click="login()">登录</a>
           <a href="javascript:;" @click="reg()">注册</a>
           <a href="javascript:;" v-if="username" @click="logout()">退出</a>
-          <a href="/#/order/list" v-if="username">我的订单</a>
+          <a href="/#/order/list" v-if="username">历史订单</a>
           <a href="javascript:;" class="my-cart" @click="gotoShopingcars()">
             <span class="icon-cart"></span>购物车({{ cartCount }})
           </a>
