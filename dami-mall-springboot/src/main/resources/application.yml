@@ -78,3 +78,24 @@ alipay:
   charset: utf-8
   #支付宝网关，这一项是写死的，正式环境是openapi.alipay.com
   gatewayUrl: openapi.alipaydev.com
+
+
+knife4j:
+  enable: true
+  openapi:
+    title: 大米商城API文档
+    description: "`5组`,**HBNU**
+    # aaa"
+    email: five_group@foxmail.com
+    concat: Tiam
+    url: https://docs.xiaominfo.com
+    version: v4.0
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      test1:
+        group-name: five_group
+        api-rule: package
+        api-rule-resources:
+          - com.zty.xiaomi.server

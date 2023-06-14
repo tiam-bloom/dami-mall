@@ -14,6 +14,8 @@ public class ProductController {
 
     @Autowired
     private ProdServiceImp prodServiceImp;
+
+
     @RequestMapping("/getInfoById/{id}")
     public ProductResult getProductInfo(@PathVariable("id") int id) throws IOException {
         ProductResult productResult = new ProductResult();
@@ -21,5 +23,7 @@ public class ProductController {
         productResult.setData(prodServiceImp.getProductInfo(id));
         return productResult;
     }
+
+
 
 }
