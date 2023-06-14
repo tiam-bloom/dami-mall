@@ -230,7 +230,7 @@ export default {
         background-color: #ffffff;
         position: absolute;
         bottom: 30px;
-        right: 200px;
+        right: 130px;
 
         h3 {
           line-height: 23px;
