@@ -28,7 +28,7 @@ public class AddrController {
         return addrSuccResult;
     }
 
-    @RequestMapping("/getAll")
+    @GetMapping("/getAll")
     public AddrResult getAll(@RequestParam("username") String username) throws IOException {
         User userByUserName = regLogServiceImp.getUserByUserName(username);
         String userid = userByUserName.getUserid();

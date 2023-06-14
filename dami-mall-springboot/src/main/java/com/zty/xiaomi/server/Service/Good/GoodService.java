@@ -4,6 +4,7 @@ import com.zty.xiaomi.server.Entity.Cart.CartGoodInsert;
 import com.zty.xiaomi.server.Entity.Cart.cartProduct;
 import com.zty.xiaomi.server.Entity.Cart.CartGood;
 import com.zty.xiaomi.server.Entity.Good;
+import com.zty.xiaomi.server.Entity.GoodsAll;
 import com.zty.xiaomi.server.Entity.index.GoodCategory;
 import org.apache.ibatis.session.SqlSession;
 
@@ -36,6 +37,8 @@ public interface GoodService {
     void  insCartGood(String userid,int goodid,String goodname,int price,
                       int count, String Subtitle,int ProductStock,int Status,boolean select
                       ) throws IOException;
+
+    GoodsAll listGoods();
 //
 //    List<CartGetGoodItem> getCartGood(String userid) throws IOException;
 }
