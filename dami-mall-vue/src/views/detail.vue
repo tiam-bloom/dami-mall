@@ -103,9 +103,9 @@ export default {
   },
   methods: {
     getProductInfo() {
-      this.axios.get(`/products/${this.id}`).then((res) => {
+      this.axios.get(`http://localhost:8080/product/getInfoById/${this.id}`).then((res) => {
         // console.log(res.json());
-        this.product = res
+        this.product = res.data
         this.mainImage = res.mainImage
       })
     },
